@@ -1,7 +1,31 @@
+import { makeObservable } from "mobx";
+
 // Store implementation
 class PetOwnerStore {
     pets = [];
     owners = [];
+
+    constructor() {
+        makeObservable(this, {
+            // Keep interface updated
+            pets: observable, 
+            owners: observable,
+            // Allow for caching when these values are updated and returned
+            totalOwners: computed,
+            totalPets: computed,
+            storeDetails: computed, 
+            // Account for state modifications
+            getPetByOwner: action,
+            createPet: action, 
+            createOwner: action, 
+            updatePet: action, 
+            updateOwner: action, 
+            deletePet: action,
+            deleteOwner: action, 
+            assignOwnerToPet: action
+        });
+        autorun(logStoreDetails);
+    }
 
     // GREANT ACCESS FOR GET 
 
