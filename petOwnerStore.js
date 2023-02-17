@@ -79,4 +79,8 @@ class PetOwnerStore {
 }
 
     // Log the store details to the console
-    
+    logStoreDetails() {
+        console.log(this.storeDetails);
+    }
+}
+
