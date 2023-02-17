@@ -77,3 +77,6 @@ class PetOwnerStore {
     get storeDetails() {
         return `We have ${this.totalPets()} total pets and ${this.totalOwners()} total owners, so far!!!`;
 }
+
+    // Log the store details to the console
+    
