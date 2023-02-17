@@ -1,3 +1,4 @@
+// Store implementation
 class PetOwnerStore {
     pets = [];
     owners = [];
@@ -84,3 +85,20 @@ class PetOwnerStore {
     }
 }
 
+// Initialize storefront with 2 pets an 1 owner
+const PetOwnerStore = new PetOwnerStore();
+    PetOwnerStore.createPet({
+        id: 1, 
+        name: "Bingo",
+        type: "Dog",
+        breed: "alsertian",
+    });
+    PetOwnerStore.createPet({
+        id: 2, 
+        name: "Lloyd",
+        type: "Cat",
+        breed: "winky",
+    });
+    petOwnerStore.createOwner({ id: 1, firstName: "Aleem", lastName: "Moulin"});
+
+    petOwnerStore.logStoreDetails(); 
