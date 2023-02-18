@@ -1,4 +1,5 @@
 import { makeObservable } from "mobx";
+import { autorun, computed, observable, action } from "mobx";
 
 // Store implementation
 class PetOwnerStore {
@@ -15,7 +16,7 @@ class PetOwnerStore {
       totalPets: computed,
       storeDetails: computed,
       // Account for state modifications
-      getPetByOwner: action,
+      // getPetByOwner: action,
       createPet: action,
       createOwner: action,
       updatePet: action,
@@ -24,7 +25,7 @@ class PetOwnerStore {
       deleteOwner: action,
       assignOwnerToPet: action,
     });
-    autorun(logStoreDetails);
+    autorun(this.logStoreDetails.bind(this));
   }
 
   // GREANT ACCESS FOR GET
@@ -104,7 +105,7 @@ class PetOwnerStore {
 
   // get store details
   get storeDetails() {
-    return `We have ${this.totalPets()} total pets and ${this.totalOwners()} total owners, so far!!!`;
+    return `We have ${this.totalPets} total pets and ${this.totalOwners} total owners, so far!!!`;
   }
 
   // Log the store details to the console
@@ -134,9 +135,9 @@ petOwnerStore.createPet({
     type: "Dog",
     breed: "Huski",
 });
+
 // -> We have 2 pets and 0 owners
 petOwnerStore.createOwner({ id: 1, firstName: "Aleem", lastName: "Moulin" });
 petOwnerStore.logStoreDetails(); // -> We have 2 pets and 1 owner
 
-
-
+export default PetOwnerStore;
