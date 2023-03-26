@@ -1,4 +1,5 @@
 import React from "react";
+import { observer } from "mobx-react-lite";
 
 function PetList({ store }) {
   // Event handler to add a new pet
@@ -9,7 +10,7 @@ function PetList({ store }) {
     const ownerId = prompt("Enter owner's Id of the pet");
 
     const pet = store.createPet({ id: Date.now(), name, type, breed });
-    store.assignOwnerToPet(ownerId, pet.id);
+    store.assignOwnerToPet(ownerId, pet?.id);
   };
   return (
     <div>
@@ -19,4 +20,4 @@ function PetList({ store }) {
   );
 }
 
-export default PetList;
+export default observer(PetList);
