@@ -1,6 +1,8 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
 
+// Work the same way than the petList, 
+// only difference is we are not assigning owners to pets
 function OwnerList({ store }) {
   const handleAddOwner = () => {
     const firstName = prompt("Firstname?");

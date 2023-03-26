@@ -1,3 +1,6 @@
+# CRUD app pet store created with React and Mobx 
+Complete tutorial can be found here : https://blog.logrocket.com/introduction-to-mobx-with-react/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
